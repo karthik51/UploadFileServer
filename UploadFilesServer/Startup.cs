@@ -50,6 +50,7 @@ namespace UploadFilesServer
             });
 
             services.AddControllers();
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -66,8 +67,8 @@ namespace UploadFilesServer
             app.UseStaticFiles();
             app.UseStaticFiles(new StaticFileOptions()
             {
-                FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), @"StaticFiles")),
-                RequestPath = new PathString("/StaticFiles")
+                FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), @"Images")),
+                RequestPath = new PathString("/Images")
             });
 
             app.UseRouting();

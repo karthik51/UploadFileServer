@@ -15,7 +15,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="StaticFiles\Images\" />
     <Folder Include="wwwroot\" />
   </ItemGroup>
 
