@@ -47,7 +47,9 @@ namespace UploadFilesServer.Controllers
                     {
                         file.CopyTo(stream);
                     }
-                    string imageUrl = _httpContextAccessor.HttpContext.Request.Host.Value + "/Images/"+ fileName;
+
+                    string schema = Request.Scheme;
+                    string imageUrl = schema+"://"+_httpContextAccessor.HttpContext.Request.Host.Value + "/Images/"+ fileName;
                     _logger.LogInformation("File upload success, created image url:" + imageUrl);
                     return Ok(new { imageUrl });
                 }
